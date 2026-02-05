@@ -35,19 +35,6 @@ public class TodoController {
     return "todos/confirm";
   }
 
-  // ToDo登録完了画面を表示する。
-  @PostMapping("/todos/complete")
-  public String complete(
-      @RequestParam("title") String title,
-      @RequestParam(value = "description", required = false) String description,
-      @RequestParam(value = "priority", defaultValue = "3") Integer priority,
-      Model model) {
-    model.addAttribute("title", title);
-    model.addAttribute("description", description);
-    model.addAttribute("priority", priority);
-    return "todos/complete";
-  }
-
   // 指定されたIDのToDo詳細画面を表示する。
   @GetMapping("/todos/{id}")
   public String detail(@PathVariable("id") long id) {
